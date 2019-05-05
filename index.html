@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <script src="lib/moment.js"></script>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>Date Output Formatter</title>
+  </head>
+  
+  <body>
+    <div id="outputId"></div>
+  </body>
+  
+  <script type="module">
+    let currentYear = (new Date()).getFullYear();
+    
+    let html = '';
+    html += generateFormattedYearHtml(currentYear - 1);
+    html += generateFormattedYearHtml(currentYear);
+    html += generateFormattedYearHtml(currentYear + 1);
+    document.getElementById('outputId').innerHTML = html;
+    
+    
+    /**
+     * Formats the list of days of a given year in HTML code. For example: '2019-05-03 (Fri)'.
+     *
+     * @param year Year to format
+     * @return HTML code that formats the list of days of a given year
+     */
+    function generateFormattedYearHtml(year)
+    {
+      let startDate = moment().year(year).startOf('year');
+      let endDate = moment(startDate).add(1, 'years');
+      
+      let formattedYearHtml = '';
+      for (let loopDate = moment(startDate); loopDate.isBefore(endDate); loopDate.add(1, 'days'))
+      {
+        formattedYearHtml += '<div>' + moment(loopDate).format('YYYY-MM-DD (ddd)') + '</div>';
+      }
+      return formattedYearHtml;
+    }
+    
+  </script>
+</html>
