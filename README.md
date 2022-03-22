@@ -3,7 +3,7 @@ Output list of formatted days in YYYY-MM-DD (ddd) format for surrounding years.
 
 ![splash](images/splash.png)
 
-## GitHub Pages
+## Try It Out
 https://hyssopi.github.io/Date-Output-Formatter/
 
 ## Prerequisites
